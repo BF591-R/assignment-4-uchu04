@@ -123,9 +123,11 @@ figures. Until you've completed all the parts, you may safely leave these
 captions blank.
 
 ```{r code block to create descriptive captions}
-caption_4 <- 'Descriptive Caption for part 4 here'
-caption_5 <- 'Descriptive Caption for part 5 here'
-caption_8 <- 'Descriptive Caption for part 8 here'
+caption_4 <- 'Figure 1. Scree plot of principal component variance. Bars show the proportion of variance explained by individual PCs and the overlaid line represents the cumulative variance explained. The plot indicates how many PCs are needed to capture the majority of variation in gene expression data.'
+
+caption_5 <- 'Figure 2. Biplot of PC1 and PC2. Each point represents an individual sample that is of C3 or C4 subtype. PC1 and PC2 capture the two greatest sources of variance in intensity data, with percentage of variance indicated on each axis. Clustering of same-colored points indicates similar expression profiles within subtypes'
+
+caption_8 <- 'Figure 3. Heatmap of normalized intensity values. Each row represents a significant probe (padj < 0.01) and each column represents an individual sample (GSM ID). Color intensity reflects normalized expression values, red indicating higher expression and blue indicating lower expression.'
 ```
 
 ## 4. Plot the variance explained and cumulative variance for the PCs
