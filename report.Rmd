@@ -5,6 +5,9 @@ output: html_document
 
 ```{r code block for setup, message=FALSE}
 source('main.R')
+install.packages("pheatmap")
+library(RColorBrewer)
+library(pheatmap)
 ```
 
 ## Setup
@@ -141,6 +144,19 @@ numeric ordering.
 
 ```{r code block to plot variance explained and cumulative variance explained, fig.cap = caption_4}
 #Create a ggplot2 with the plot described above, refer to the reference report
+ls_cols <- c('Cumulative'='black')
+bar_cols <- c('Variance Explained'='light blue')
+variance_tibble %>%
+  ggplot() + 
+  geom_bar(aes(x=principal_components, y=variance_explained,fill = "Variance Explained"), stat="identity", color='black') +
+  geom_line(aes(x=principal_components,y=cumulative,group=1,color="Cumulative")) +
+  geom_point(aes(x=principal_components,y=cumulative,group=1,color="Cumulative")) +
+  scale_color_manual(name="Cumulative",values=ls_cols) +
+  scale_fill_manual(name="Variance Explained",values=bar_cols) +
+  labs(x='PC',y='% variance') +
+  theme_classic(base_size=8) +
+  theme(axis.text.x=element_text(angle=90,hjust=1))
+
 
 ```
 
